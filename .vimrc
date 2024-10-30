@@ -16,4 +16,8 @@ set encoding=utf-8
 " colors
 colorscheme slate
 
-
+" 2 space tabs
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
