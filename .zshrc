@@ -1,8 +1,12 @@
 autoload -U colors && colors
-PROMPT='%F{green}%n@%m%~%f %# '
+PROMPT='%F{219}%n@dsl-mba %~ %#%f '
 
-alias emptytrash="sudo rm -rf ~/.Trash/* /Users/*/.Trash/*"
 alias ll="ls -lah"
+alias emptytrash="rm -rf ~/.Trash"
 
-export PATH="/opt/homebrew/opt/git:$PATH"
-export PATH="/opt/homebrew/opt/python@3.13:$PATH"
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+export PATH="/opt/homebrew/opt/git/bin:$PATH"
