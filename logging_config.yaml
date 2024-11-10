@@ -1,0 +1,28 @@
+version: 1
+formatters:
+  console:
+    (): colorlog.ColoredFormatter
+    format: "%(log_color)s%(asctime)s - %(levelname)s - %(message)s"
+    log_colors:
+      DEBUG: cyan
+      INFO: green
+      WARNING: yellow
+      ERROR: red
+      CRITICAL: red,bg_white
+  file:
+    format: "%(asctime)s - %(levelname)s - %(message)s"
+
+handlers:
+  console:
+    class: colorlog.StreamHandler
+    formatter: console
+    stream: ext://sys.stdout
+  file:
+    class: logging.FileHandler
+    formatter: file
+    filename: outputs/claude-response.log
+
+loggers:
+  root:
+    level: INFO
+    handlers: [console, file]
